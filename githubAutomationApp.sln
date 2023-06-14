@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{14E4BDCE-8D6A-4E01-9EE4-1223C98DA550}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "githubAutomation", "src\githubAutomation\githubAutomation.csproj", "{8A278D4C-6B9E-43D7-BBC0-7DAA555B5B53}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7CB9F4AD-969F-4294-A287-D5FF87CDF465}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "githubAutomationTest", "test\github-automation-app.test\githubAutomationTest.csproj", "{383B83A8-5227-4EC5-84A0-F2C2A13AD785}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A278D4C-6B9E-43D7-BBC0-7DAA555B5B53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A278D4C-6B9E-43D7-BBC0-7DAA555B5B53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A278D4C-6B9E-43D7-BBC0-7DAA555B5B53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A278D4C-6B9E-43D7-BBC0-7DAA555B5B53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{383B83A8-5227-4EC5-84A0-F2C2A13AD785}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{383B83A8-5227-4EC5-84A0-F2C2A13AD785}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{383B83A8-5227-4EC5-84A0-F2C2A13AD785}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{383B83A8-5227-4EC5-84A0-F2C2A13AD785}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8A278D4C-6B9E-43D7-BBC0-7DAA555B5B53} = {14E4BDCE-8D6A-4E01-9EE4-1223C98DA550}
+		{383B83A8-5227-4EC5-84A0-F2C2A13AD785} = {7CB9F4AD-969F-4294-A287-D5FF87CDF465}
+	EndGlobalSection
+EndGlobal
