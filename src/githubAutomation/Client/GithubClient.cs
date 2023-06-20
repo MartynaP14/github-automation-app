@@ -7,10 +7,11 @@ namespace githubAutomation.Client
     {
         private HttpClient _httpClient;
 
-        public GithubClient(HttpClient httpclient)
+        public GithubClient(HttpClient httpclient, string ghToken)
         {
             _httpClient= httpclient;
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "x");
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", $"{ghToken}");
+            
         }
             
 
@@ -21,12 +22,9 @@ namespace githubAutomation.Client
         public async Task<HttpResponseMessage> CreateRepository()
         {
            return await _httpClient.GetAsync("");
+
         }
        
-
-
-
-
 
     }
 }
