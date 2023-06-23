@@ -11,13 +11,19 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+
 var config = new ConfigurationBuilder()
     .AddEnvironmentVariables()
     .Build();
 var ghToken = config["GH_TOKEN"];
+var owner = "MartynaP14";
+var repo = "github-automation-app";
+
 var httpClient = new HttpClient();
-var gihubClient = new GithubClient(httpClient, ghToken);
-Console.WriteLine(ghToken);
+var githubClient = new GithubClient(httpClient, ghToken);
+var result = await githubClient.GetRepository(owner, repo);
+
+Console.WriteLine(result);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
