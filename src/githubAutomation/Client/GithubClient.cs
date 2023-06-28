@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using githubAutomation.Models;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Runtime.Serialization;
 
@@ -32,7 +33,11 @@ namespace githubAutomation.Client
         }
 
 
-       
+        public async Task<HttpResponseMessage> CreateRepository(Repository repository)
+        {
+            return await _httpClient.PostAsJsonAsync("/user/repos", repository);
+
+        }
 
     }
 }
