@@ -1,4 +1,5 @@
 ﻿using githubAutomation.Models;
+using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Runtime.Serialization;
@@ -36,6 +37,20 @@ namespace githubAutomation.Client
         public async Task<HttpResponseMessage> CreateRepository(Repository repository)
         {
             return await _httpClient.PostAsJsonAsync("/user/repos", repository);
+
+        }
+
+
+
+        public async Task<HttpResponseMessage> DeleteRepository(string owner, string repo)
+        {
+            return await _httpClient.DeleteAsync($"/repos/{owner}/{repo}");
+
+        }
+
+        public async Task<HttpResponseMessage> UpdateRepository(string owner, string repo, string path, GithubMessage message)
+        {
+            return await _httpClient.PutAsJsonAsync($"/repos/{owner}/{repo}/contents/{path}", message);
 
         }
 
