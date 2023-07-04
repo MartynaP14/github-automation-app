@@ -1,5 +1,6 @@
 using githubAutomation.Client;
 using githubAutomation.Models;
+using githubAutomation.Services;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -32,12 +33,9 @@ var repo = "New-Repo";
 var httpClient = new HttpClient();
 var githubClient = new GithubClient(httpClient, ghToken!);
 
-//var result = await githubClient.GetRepository(owner, repo);
+var githubRepoService = new GithubRepoService(githubClient);
+await githubRepoService.GetRepositoryService(owner, repo);
 
-
-//var resultContent = await result.Content.ReadAsStringAsync();
-
-//Console.WriteLine(resultContent);
 // Configure the HTTP request pipeline.
 
 var repository = new Repository {Name = "New Repo" };
