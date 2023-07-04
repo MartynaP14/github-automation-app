@@ -36,6 +36,8 @@ var githubClient = new GithubClient(httpClient, ghToken!);
 var githubRepoService = new GithubRepoService(githubClient);
 await githubRepoService.GetRepositoryService(owner, repo);
 
+githubRepoService.DeleteRepositoryService(owner, repo);
+
 // Configure the HTTP request pipeline.
 
 var repository = new Repository {Name = "New Repo" };

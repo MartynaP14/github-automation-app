@@ -22,15 +22,16 @@ namespace githubAutomation.Services
         }
 
 
+        public async void DeleteRepositoryService(string owner, string repoName) 
+        { 
+            await _githubClient.DeleteRepository(owner, repoName);
+            //need to validate if repository delted, if the user variable exists
+        
+        }
+
     }
 }
-//var result = await githubClient.GetRepository(owner, repo);
 
-
-//var resultContent = await result.Content.ReadAsStringAsync();
-
-//Console.WriteLine(resultContent);
-// Configure the HTTP request pipeline.
 
 //var repository = new Repository { Name = "New Repo" };
 ////var description = "Description of new repository";
