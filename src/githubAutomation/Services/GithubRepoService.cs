@@ -29,16 +29,21 @@ namespace githubAutomation.Services
         
         }
 
+
+        public async Task<string> CreateRepositoryService(Repository repository)
+        {
+            var createResultResponse = await _githubClient.CreateRepository(repository);
+            var createResultContent = await createResultResponse.Content.ReadAsStringAsync();    
+            return createResultContent;
+        }
+
     }
 }
 
 
 //var repository = new Repository { Name = "New Repo" };
 ////var description = "Description of new repository";
-////var createnewrepo = await githubClient.CreateRepository( repository);
-////Console.WriteLine(createnewrepo);
 
-////var deleterepo = await githubClient.DeleteRepository(owner, repo);
 
 //var pathtwo = "README.md";
 ////var path = new Pathfile {PathName = "README.md"};

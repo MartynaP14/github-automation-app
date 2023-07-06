@@ -38,14 +38,13 @@ await githubRepoService.GetRepositoryService(owner, repo);
 
 githubRepoService.DeleteRepositoryService(owner, repo);
 
+var repository = new Repository {Name = "New Repo" };
+await githubRepoService.CreateRepositoryService(repository);
 // Configure the HTTP request pipeline.
 
-var repository = new Repository {Name = "New Repo" };
-//var description = "Description of new repository";
-//var createnewrepo = await githubClient.CreateRepository( repository);
-//Console.WriteLine(createnewrepo);
 
-//var deleterepo = await githubClient.DeleteRepository(owner, repo);
+//var description = "Description of new repository";
+
 
 var pathtwo = "README.md";
 //var path = new Pathfile {PathName = "README.md"};
