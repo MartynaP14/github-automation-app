@@ -37,6 +37,19 @@ namespace githubAutomation.Services
             return createResultContent;
         }
 
+        public async Task<string>UpdateRepositoryService(string owner, string repo, string pathtwo, GithubMessage message)
+        {
+
+            //var GithubMessage = new GithubMessage { Message = "New file added to repository", Content = updateResultResponse };
+            var result = await _githubClient.UpdateRepository(owner, repo, pathtwo, message);
+            var response = await result.Content.ReadAsStringAsync();
+            return response;
+
+
+
+        }
+
+
     }
 }
 
