@@ -51,11 +51,13 @@ var pathtwo = "README.md";
 
 
 var content = "Content added";
-var headerByte = Encoding.ASCII.GetBytes(content);
-var headerAsBase64 = Convert.ToBase64String(headerByte);
+var base64Encoder = new Base64Encoder();
+var encodedContent = base64Encoder.EncodeService(content);
 
-var message = new GithubMessage {Message = "New file added to repository", Content = headerAsBase64 };
 
+var message = new GithubMessage {Message = "New file added to repository", Content = encodedContent };
+
+//
 
 var updatereplacefile = await githubClient.UpdateRepository(owner, repo, pathtwo,  message);
 var response = await updatereplacefile.Content.ReadAsStringAsync();
