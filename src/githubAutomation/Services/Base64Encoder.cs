@@ -1,5 +1,4 @@
-﻿using gihubAutomation.Client
-using githubAutomation.Models;
+﻿using githubAutomation.Models;
 using System.Text;
 
 namespace githubAutomation.Services
