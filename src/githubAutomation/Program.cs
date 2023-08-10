@@ -36,25 +36,28 @@ var githubClient = new GithubClient(httpClient, ghToken!);
 var githubRepoService = new GithubRepoService(githubClient);
 await githubRepoService.GetRepositoryService(owner, repo);
 
-// Configure the HTTP request pipeline.
+githubRepoService.DeleteRepositoryService(owner, repo);
 
 var repository = new Repository {Name = "New Repo" };
-//var description = "Description of new repository";
-//var createnewrepo = await githubClient.CreateRepository( repository);
-//Console.WriteLine(createnewrepo);
+await githubRepoService.CreateRepositoryService(repository);
+// Configure the HTTP request pipeline.
 
-//var deleterepo = await githubClient.DeleteRepository(owner, repo);
+
+//var description = "Description of new repository";
+
 
 var pathtwo = "README.md";
 //var path = new Pathfile {PathName = "README.md"};
 
 
 var content = "Content added";
-var headerByte = Encoding.ASCII.GetBytes(content);
-var headerAsBase64 = Convert.ToBase64String(headerByte);
+var base64Encoder = new Base64Encoder();
+var encodedContent = base64Encoder.EncodeService(content);
 
-var message = new GithubMessage {Message = "New file added to repository", Content = headerAsBase64 };
 
+var message = new GithubMessage {Message = "New file added to repository", Content = encodedContent };
+
+//
 
 var updatereplacefile = await githubClient.UpdateRepository(owner, repo, pathtwo,  message);
 var response = await updatereplacefile.Content.ReadAsStringAsync();

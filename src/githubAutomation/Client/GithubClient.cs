@@ -1,4 +1,5 @@
-﻿using githubAutomation.Models;
+﻿using githubAutomation.Interfaces;
+using githubAutomation.Models;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -6,7 +7,7 @@ using System.Runtime.Serialization;
 
 namespace githubAutomation.Client
 {
-    public class GithubClient
+    public class GithubClient : IGithubClient
     {
         private HttpClient _httpClient;
         private readonly string GithubApiAddress = "https://api.github.com";

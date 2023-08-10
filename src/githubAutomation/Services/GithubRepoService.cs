@@ -22,22 +22,41 @@ namespace githubAutomation.Services
         }
 
 
+        public async void DeleteRepositoryService(string owner, string repoName) 
+        { 
+            await _githubClient.DeleteRepository(owner, repoName);
+            //need to validate if repository delted, if the user variable exists
+        
+        }
+
+
+        public async Task<string> CreateRepositoryService(Repository repository)
+        {
+            var createResultResponse = await _githubClient.CreateRepository(repository);
+            var createResultContent = await createResultResponse.Content.ReadAsStringAsync();    
+            return createResultContent;
+        }
+
+        public async Task<string>UpdateRepositoryService(string owner, string repo, string pathtwo, GithubMessage message)
+        {
+
+            //var GithubMessage = new GithubMessage { Message = "New file added to repository", Content = updateResultResponse };
+            var result = await _githubClient.UpdateRepository(owner, repo, pathtwo, message);
+            var response = await result.Content.ReadAsStringAsync();
+            return response;
+
+
+
+        }
+
+
     }
 }
-//var result = await githubClient.GetRepository(owner, repo);
 
-
-//var resultContent = await result.Content.ReadAsStringAsync();
-
-//Console.WriteLine(resultContent);
-// Configure the HTTP request pipeline.
 
 //var repository = new Repository { Name = "New Repo" };
 ////var description = "Description of new repository";
-////var createnewrepo = await githubClient.CreateRepository( repository);
-////Console.WriteLine(createnewrepo);
 
-////var deleterepo = await githubClient.DeleteRepository(owner, repo);
 
 //var pathtwo = "README.md";
 ////var path = new Pathfile {PathName = "README.md"};
