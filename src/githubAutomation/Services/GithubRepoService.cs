@@ -22,10 +22,12 @@ namespace githubAutomation.Services
         }
 
 
-        public async void DeleteRepositoryService(string owner, string repoName) 
+        public async Task<string> DeleteRepositoryService(string owner, string repoName) 
         { 
-            await _githubClient.DeleteRepository(owner, repoName);
-            //need to validate if repository delted, if the user variable exists
+            var result= await _githubClient.DeleteRepository(owner, repoName);
+            var response = await result.Content.ReadAsStringAsync();
+            return response;
+            
         
         }
 
@@ -44,8 +46,6 @@ namespace githubAutomation.Services
             var result = await _githubClient.UpdateRepository(owner, repo, pathtwo, message);
             var response = await result.Content.ReadAsStringAsync();
             return response;
-
-
 
         }
 
